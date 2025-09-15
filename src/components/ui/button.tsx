@@ -6,7 +6,7 @@ export const Button = ({
   children,
   disabled = false,
 }: {
-  onClick: () => void;
+  onClick?: () => void;
   className: string;
   children: React.ReactNode;
   disabled?: boolean;

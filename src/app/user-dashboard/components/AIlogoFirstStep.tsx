@@ -3,7 +3,7 @@
 import PhotoUpload from "@/components/PhotoUploader";
 import { useState, ChangeEvent } from "react";
 
-export default function LetsGetStarted() {
+export default function AILetsGetStarted() {
   const [data, setData] = useState({
     photo: null as File | null,
     firstName: "",
@@ -12,23 +12,15 @@ export default function LetsGetStarted() {
   });
   return (
     <div>
-      <div className="mb-12">
-        <h1 className="text-4xl font-semibold text-foreground mb-4">
-          Welcome! Lets get started
-        </h1>
-        <p className="text-md font-light text-muted-foreground">
-          Select at least one skill that best represents your expertise
-        </p>
-      </div>
-
-      <PhotoUpload
-        onPhotoSelect={(file) => setData((prev) => ({ ...prev, photo: file }))}
-      />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mb-16">
+        <div className="flex w-[80%] items-start ">
+          <h1 className="text-4xl font-semibold text-foreground mb-4">
+            Basic Info
+          </h1>
+        </div>
         <div className="space-y-2 flex flex-col gap-1">
-          <label className="text-base font-light text-foreground">
-            First Name
+          <label className="text-base text-black font-light text-foreground">
+            Brand Name
           </label>
           <input
             type="text"
@@ -42,7 +34,7 @@ export default function LetsGetStarted() {
         </div>
         <div className="space-y-2 flex flex-col gap-1">
           <label className="text-base font-light text-foreground">
-            Last Name
+            Tag Line (Optional)
           </label>
           <input
             type="text"

@@ -4,8 +4,8 @@ import Tabs from "@/components/Tabs/Tabs";
 import { useState } from "react";
 import AnalyticsCards from "./components/AnaliticsCards";
 import AnalyticsCharts from "./components/AnalyticsCharts";
-import PieChart from "./components/PieChart";
 import AnalyticsTable from "./components/AnalyticsTable";
+import PieChart from "./components/PieChart";
 
 const page = () => {
   const [activeTab, setActiveTab] = useState("User Growth");

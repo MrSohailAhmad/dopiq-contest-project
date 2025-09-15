@@ -1,28 +1,5 @@
 "use client";
-import {
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  SectorProps,
-  Cell,
-} from "recharts";
-
-type Coordinate = {
-  x: number;
-  y: number;
-};
-
-type PieSectorData = {
-  percent?: number;
-  name?: string | number;
-  midAngle?: number;
-  middleRadius?: number;
-  tooltipPosition?: Coordinate;
-  value?: number;
-  paddingAngle?: number;
-  dataKey?: string;
-  payload?: any;
-};
+import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 const data = [
   { name: "Group A", value: 400 },

@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 const Credentials = () => {
-  // const { data, setData } = useFormData();
-
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",

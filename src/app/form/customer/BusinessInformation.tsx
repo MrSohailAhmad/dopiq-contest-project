@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 const BusinessInformation = () => {
-  // const { data, setData } = useFormData();
-
   const [formData, setFormData] = useState({
     companyName: "",
     companyType: "",
@@ -13,10 +11,6 @@ const BusinessInformation = () => {
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
-
-  // const handlePhotoSelect = (file: File) => {
-  //   setFormData((prev) => ({ ...prev, photo: file }));
-  // };
 
   return (
     <div>

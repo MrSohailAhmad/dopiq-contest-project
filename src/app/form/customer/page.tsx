@@ -1,6 +1,5 @@
 "use client";
 
-import { useFormData } from "@/app/context/FormContext";
 import StepIndicator from "@/components/StepIndicator/StepIndicator";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -15,7 +14,7 @@ import VerifyYourEmail from "./VerifyYourEmail";
 
 export default function CustomerForm() {
   const [step, setStep] = useState(1);
-  const { data } = useFormData();
+
   const router = useRouter();
 
   const totalSteps = 6;
@@ -35,7 +34,6 @@ export default function CustomerForm() {
   };
 
   const handleSubmit = () => {
-    console.log("Submitting form data:", data);
     // TODO: send `data` to API or server
     // Navigate to user dashboard after successful submission
     router.push("/user-dashboard");

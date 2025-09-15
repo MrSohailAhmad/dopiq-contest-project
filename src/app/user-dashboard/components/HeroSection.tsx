@@ -1,8 +1,54 @@
-import { Star, Edit3, Calendar, Menu } from "lucide-react";
+"use client";
+import { useFormData } from "@/context/FormContext";
+import {
+  Calendar,
+  CreditCard,
+  Edit3,
+  Handshake,
+  Home,
+  LibraryBig,
+  Menu,
+  MessageSquare,
+  Settings,
+  Sparkles,
+  Star,
+  Trophy,
+} from "lucide-react";
+import { useState } from "react";
 
-export const HeroSection = () => {
+const designerMenu = [
+  { label: "Home", icon: Home, path: "designer-home" },
+  { label: "Live Contest", icon: Trophy, path: "live-contest" },
+  { label: "Direct Hire", icon: Handshake, path: "designer-direct-hire" },
+  { label: "My Submission", icon: Handshake, path: "my-submission" },
+  { label: "Messages", icon: MessageSquare, path: "messages" },
+  { label: "Payments", icon: CreditCard, path: "designer-payments" },
+  {
+    label: "Profile Settings",
+    icon: Settings,
+    path: "designer-profile-settings",
+  },
+];
+
+const menuItems = [
+  { label: "Home", icon: Home, path: "home" },
+  { label: "My Contest", icon: Trophy, path: "my-contest" },
+  { label: "Direct Hire", icon: Handshake, path: "direct-hire" },
+  { label: "AI logo Generation", icon: Sparkles, path: "ai-logo-generation" },
+  { label: "My library", icon: LibraryBig, path: "my-library" },
+  { label: "Messages", icon: MessageSquare, path: "messages" },
+  { label: "Payments", icon: CreditCard, path: "payments" },
+  { label: "Profile Settings", icon: Settings, path: "profile-settings" },
+];
+
+export const HeroSection = ({ setItem }: { setItem: Function }) => {
+  const { userType } = useFormData();
+  const [showMenu, setShowMenu] = useState(false);
+
+  const menu = userType === "designer" ? designerMenu : menuItems;
+
   return (
-    <section className="bg-gradient-to-r from-blue-500 via-accent to-blue-900  rounded-3xl  mt-6 p-8 text-white relative overflow-hidden">
+    <section className="bg-gradient-to-r from-blue-500 via-accent to-blue-900 overflow-visible  rounded-3xl  mt-6 p-8 text-white relative ">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-4 right-4 w-20 h-20 border border-white/20 rounded-full"></div>
@@ -32,13 +78,33 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="hidden lg:flex h-full items-center gap-4">
+          <div className="hidden relative lg:flex h-full items-center gap-4">
             <button className=" bg-white hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-xl transition-all duration-200">
               <Calendar className="w-6 text-black h-6" />
             </button>
-            <button className="bg-white hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-xl transition-all duration-200">
+            <button
+              onClick={() => setShowMenu(!showMenu)}
+              className="bg-white hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-xl transition-all duration-200"
+            >
               <Menu className="w-6 text-black  h-6" />
             </button>
+            {showMenu && (
+              <div className="absolute z-10 right-0 p-3 top-12 mt-2 w-[16rem] rounded-md shadow-lg bg-white border-0 ring-1 ring-opacity-5">
+                <div className="py-1" role="none">
+                  {menu.map((item, index) => (
+                    <a
+                      onClick={() => setItem(item.path)}
+                      key={index}
+                      // href={item.path}
+                      className="flex cursor-pointer items-center group px-4 py-3 hover:text-blue-500/40 text-sm text-gray-700 hover:bg-gray-100 "
+                    >
+                      <item.icon className="w-4 h-4 group-hover:text-blue-500/40 mr-2" />
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

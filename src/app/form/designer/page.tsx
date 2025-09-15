@@ -14,10 +14,12 @@ import { PaymentSetup } from "./Payment";
 import { PricingSetup } from "./Pricing";
 import { ProfessionalInfo } from "./ProfessionalInfo";
 import { SkillsSelection } from "./SkillSelection";
+import { useFormData } from "@/context/FormContext";
 
 const page = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const router = useRouter();
+  const { setUserType } = useFormData();
   const [formData, setFormData] = useState({
     skills: [] as string[],
     firstName: "",
@@ -78,6 +80,7 @@ const page = () => {
     if (currentStep < 8) {
       setCurrentStep((prev) => prev + 1);
     } else {
+      setUserType("designer");
       router.push("/user-dashboard");
     }
   };

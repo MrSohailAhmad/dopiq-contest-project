@@ -52,7 +52,7 @@ const activeContests = [
   },
 ];
 
-export const ContestsSection = () => {
+export const DirectHireSection = () => {
   const [activeTab, setActiveTab] = useState<"invitations" | "recommendations">(
     "invitations"
   );
@@ -121,7 +121,7 @@ export const ContestsSection = () => {
       <div className="rounded-2xl w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 mt-10">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            Your Active Contests
+            Active Direct Hire People
           </h2>
 
           <button className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">

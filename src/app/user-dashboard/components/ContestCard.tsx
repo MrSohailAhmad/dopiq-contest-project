@@ -93,7 +93,7 @@ export const ContestCard = ({
           )} */}
         </div>
 
-        <div className={`flex gap-3 ${type === "active" && "w-full"}`}>
+        <div className={`flex gap-3 mt-auto ${type === "active" && "w-full"}`}>
           {isInvitation ? (
             <>
               <button className="flex-1 bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white py-2 px-4 rounded-full font-medium transition-colors">
@@ -105,7 +105,7 @@ export const ContestCard = ({
             </>
           ) : (
             <button
-              className={`flex-1 py-2 w-full px-6 rounded-full font-medium transition-colors ${
+              className={`flex-1 py-2 w-full px-6 bg-blue-500 text-white mt-auto rounded-full font-medium transition-colors ${
                 buttonVariant === "primary"
                   ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                   : "bg-muted hover:bg-muted/80 text-muted-foreground"

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import blue_logo from "../../../assets/Screenshot_2025-09-14_at_9.51.24_PM-removebg-preview.png";
+import blue_logo from "../../assets/Screenshot_2025-09-14_at_9.51.24_PM-removebg-preview.png";
 import Link from "next/link";
 const page = () => {
   // const [formData, setFormData] = useState({ email: "", password: "" });
@@ -130,7 +130,7 @@ const page = () => {
               </div>
               <div>
                 <Link
-                  href="/admin-dashboard/dashboard"
+                  href="/admin-dashboard"
                   className="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   type="submit"
                 >

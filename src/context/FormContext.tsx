@@ -13,12 +13,15 @@ type FormContextType = {
   data: FormData;
   setData: (values: Partial<FormData>) => void;
   reset: () => void;
+  userType: string;
+  setUserType: (value: string) => void;
 };
 
 const FormContext = createContext<FormContextType | undefined>(undefined);
 
 export const FormProvider = ({ children }: { children: ReactNode }) => {
   const [data, setFormData] = useState<FormData>({});
+  const [userType, setUserType] = useState<string>("home");
 
   const setData = (values: Partial<FormData>) =>
     setFormData((prev) => ({ ...prev, ...values }));
@@ -26,7 +29,9 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const reset = () => setFormData({});
 
   return (
-    <FormContext.Provider value={{ data, setData, reset }}>
+    <FormContext.Provider
+      value={{ data, setData, reset, userType, setUserType }}
+    >
       {children}
     </FormContext.Provider>
   );
